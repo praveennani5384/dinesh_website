@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Amoxicillin 250mg Capsules",
+    "type": "Capsule",
+    "category": "Antibiotic",
+    "manufacturer": "ABC Pharmaceuticals",
+    "price": 5.50,
+    "stock": 100
+  },
+  {
+    "id": 2,
+    "name": "Paracetamol 500mg Tablets",
+    "type": "Tablet",
+    "category": "Analgesic",
+    "manufacturer": "XYZ Pharma",
+    "price": 2.75,
+    "stock": 150
+  },
+  {
+    "id": 3,
+    "name": "Cetirizine 10mg Tablets",
+    "type": "Tablet",
+    "category": "Antihistamine",
+    "manufacturer": "MedCorp",
+    "price": 3.20,
+    "stock": 80
+  },
+  {
+    "id": 4,
+    "name": "Ibuprofen 200mg Tablets",
+    "type": "Tablet",
+    "category": "NSAID",
+    "manufacturer": "Beta Drugs",
+    "price": 4.10,
+    "stock": 120
+  },
+  {
+    "id": 5,
+    "name": "Omeprazole 20mg Capsules",
+    "type": "Capsule",
+    "category": "Proton Pump Inhibitor",
+    "manufacturer": "Gamma Labs",
+    "price": 6.80,
+    "stock": 90
+  },
+  {
+    "id": 6,
+    "name": "Dextromethorphan HBr Syrup",
+    "type": "Syrup",
+    "category": "Cough Suppressant",
+    "manufacturer": "ABC Pharmaceuticals",
+    "price": 7.25,
+    "stock": 75
+  },
+  {
+    "id": 7,
+    "name": "Guaifenesin Syrup",
+    "type": "Syrup",
+    "category": "Expectorant",
+    "manufacturer": "XYZ Pharma",
+    "price": 6.50,
+    "stock": 110
+  },
+  {
+    "id": 8,
+    "name": "Diphenhydramine Syrup",
+    "type": "Syrup",
+    "category": "Antihistamine",
+    "manufacturer": "MedCorp",
+    "price": 8.00,
+    "stock": 60
+  }
+]

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines - Veditha Medicals</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        #search-bar {
+            margin-bottom: 1em;
+        }
+
+        #search-input {
+            padding: 0.5em;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #search-button {
+            padding: 0.5em 1em;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #medicines-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        #medicines-table th,
+        #medicines-table td {
+            border: 1px solid #ddd;
+            padding: 0.5em;
+            text-align: left;
+        }
+
+        #medicines-table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Medicines - Veditha Medicals</h1>
+        <a href="index.html">Back to Home</a>
+    </header>
+
+    <section id="search-bar">
+        <input type="text" id="search-input" placeholder="Search for medicines...">
+        <button id="search-button">Search</button>
+    </section>
+
+    <section id="medicine-list">
+        <h2>Medicines</h2>
+        <table id="medicines-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Manufacturer</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Medicines data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>© 2024 Veditha Medicals & Pharmaceuticals</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const medicinesTableBody = document.querySelector('#medicines-table tbody');
+
+            let medicinesData = []; // Store the loaded data
+
+            // Function to fetch and load the JSON data
+            async function loadMedicinesData() {
+                try {
+                    const response = await fetch('data.json');
+                    medicinesData = await response.json();
+                    displayMedicines(medicinesData); // Initial display
+                } catch (error) {
+                    console.error('Error loading medicines data:', error);
+                    medicinesTableBody.innerHTML = '<tr><td colspan="6">Error loading data.</td></tr>';
+                }
+            }
+
+            // Function to display medicines in the table
+            function displayMedicines(medicines) {
+                medicinesTableBody.innerHTML = ''; // Clear existing table rows
+
+                if (medicines.length === 0) {
+                    medicinesTableBody.innerHTML = '<tr><td colspan="6">No medicines found.</td></tr>';
+                    return;
+                }
+
+                medicines.forEach(medicine => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${medicine.name}</td>
+                        <td>${medicine.type}</td>
+                        <td>${medicine.category}</td>
+                        <td>${medicine.manufacturer}</td>
+                        <td>${medicine.price}</td>
+                        <td>${medicine.stock}</td>
+                    `;
+                    medicinesTableBody.appendChild(row);
+                });
+            }
+
+            // Function to filter medicines based on search term
+            function filterMedicines(searchTerm) {
+                const searchTermLower = searchTerm.toLowerCase();
+                const filteredMedicines = medicinesData.filter(medicine => {
+                    return (
+                        medicine.name.toLowerCase().includes(searchTermLower) ||
+                        medicine.type.toLowerCase().includes(searchTermLower) ||
+                        medicine.category.toLowerCase().includes(searchTermLower) ||
+                        medicine.manufacturer.toLowerCase().includes(searchTermLower)
+                    );
+                });
+                return filteredMedicines;
+            }
+
+            // Event listener for the search button
+            searchButton.addEventListener('click', function() {
+                const searchTerm = searchInput.value.trim();
+                const results = filterMedicines(searchTerm);
+                displayMedicines(results);
+            });
+
+           // Event listener for live search as the user types (optional)
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.trim();
+                const results = filterMedicines(searchTerm);
+                displayMedicines(results);
+            });
+
+            // Load the data when the page loads
+            loadMedicinesData();
+        });
+    </script>
+</body>
+</html>
