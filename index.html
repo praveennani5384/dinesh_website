@@ -25,7 +25,7 @@
         }
 
         header {
-            background-color: #007BFF; /* Example: Blue header */
+            background-color: #007BFF;
             color: white;
             padding: 1em 0;
             text-align: center;
@@ -40,7 +40,7 @@
         }
 
         .logo img {
-            width: 50px; /* Adjust size as needed */
+            width: 50px;
             margin-right: 10px;
         }
 
@@ -49,56 +49,100 @@
             text-decoration: none;
         }
 
+        .contact-info {
+            text-align: right; /* Align contact info to the right */
+        }
+
         .hero {
-            background-color: #e9ecef; /* Light Gray */
+            background-color: #e9ecef;
             padding: 2em;
             text-align: center;
         }
 
         .cta-button {
-            background-color: #28a745; /* Green */
+            background-color: #28a745;
             color: white;
             padding: 0.5em 1em;
             text-decoration: none;
             border-radius: 5px;
+            cursor: pointer;
         }
 
         .about {
             padding: 2em;
             line-height: 1.6;
         }
-        .address{
-            display:flex;
+
+        .address {
+            display: flex;
+            align-items: center; /* Vertically align the icon and text */
         }
-        .address i{
+
+        .address i {
             margin-right: 5px;
         }
 
+        .map {
+            margin: 15px;
+        }
+
         footer {
-            background-color: #343a40; /* Dark Gray */
+            background-color: #343a40;
             color: white;
             text-align: center;
             padding: 1em 0;
-            position: fixed;
+            position: relative; /* Changed to relative */
             bottom: 0;
             width: 100%;
+            clear: both; /* Ensure footer clears any floating content */
         }
 
-       /* Responsive Design (Example - Adjust as needed) */
+        /* Responsive Design */
         @media (max-width: 768px) {
             header {
-                flex-direction: column; /* Stack header elements on smaller screens */
-                padding: 0.5em 0;
+                flex-direction: column;
+                align-items: center; /* Center items in the header */
+                text-align: center;  /* Center text in the header */
             }
 
             .logo {
-                margin-bottom: 0.5em; /* Add some space between logo and contact info */
+                margin-bottom: 0.5em;
+            }
+
+            .contact-info {
+                text-align: center;  /* Center the contact info on smaller screens */
+            }
+
+            .address {
+                flex-direction: column; /* Stack address elements */
+                align-items: flex-start; /* Align to the start */
+            }
+
+            .address p {
+                margin-top: 0.5em;  /* Add some space below the icon */
+            }
+
+             .address a {
+                 display: block;
+                 text-align: left;  /* Left-align the Google Maps link */
+             }
+
+            .map {
+                 margin: 10px 0;  /* Reduce margin on mobile */
+            }
+
+            .map iframe {
+               width: 100%; /* Make sure the map takes full width */
+            }
+
+            footer {
+                position: static; /* Remove fixed positioning on mobile */
             }
         }
 
     </style>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/font-awesome.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -116,7 +160,6 @@
         <div class="hero-content">
             <h2>Welcome to Veditha Medicals & Pharmaceuticals</h2>
             <p>Your trusted distributor of quality medical and pharmaceutical products.</p>
-            <a href="mailto:vedithapharma@gmail.com" class="cta-button">Contact Us Today</a>
         </div>
     </section>
 
@@ -125,9 +168,19 @@
         <p>Veditha Medicals & Pharmaceuticals is a dedicated distributor committed to providing reliable and high-quality medical and pharmaceutical products to our clients.  We strive to build lasting relationships based on trust and exceptional service.</p>
         <p>Proprietor: Dinesh Godisela</p>
         <div class="address">
-            <i class="fas fa-map-marker-alt"></i>
-            <p>2-190/6, Paikaji Nagar, Asifabad, Telangana-504293</p>
+            <i class="fa fa-map-marker-alt"></i>
+            <p>
+                 <a href="https://www.google.com/search?q=nitya+enclave+kattedan&rlz=1C1CHBF_en-GBIN1096IN1096&oq=nitya+enclave+katedhan&gs_lcrp=EgZjaHJvbWUqCQgBECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKABMgkIBBAhGAoYoAEyBwgFECEYjwIyBwgGECEYjwLSAQkxMjI5NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank">Nitya Enclave (Click to view on Google Maps)</a>
+            </p>
         </div>
+
+         <div class="map">
+           <iframe src="https://www.google.com/maps/place/Nitya+Enclave+Gate/@17.2964724,78.4405324,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bcbbda82e3351fb:0xab939f22f804716a!8m2!3d17.2964673!4d78.4454033!16s%2Fg%2F11qmsw8hx4!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MDYxNy4wIKXMDSoASAFQAw%3D%3D"></iframe>
+         </div>
+    </section>
+
+    <section>
+        <a href="medicines.html" class="cta-button">View Medicines</a>
     </section>
 
     <footer>
